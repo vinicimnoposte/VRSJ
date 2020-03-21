@@ -7,6 +7,7 @@ public class Raycaster : MonoBehaviour
 {
     public TextMesh textDebug;
     public GameObject crosshair;
+    float counter=2;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +29,19 @@ public class Raycaster : MonoBehaviour
             if (hit.transform.gameObject.CompareTag("Player"))
             {
                 crosshair.GetComponent<Image>().CrossFadeColor(Color.green, .5f, false, false);
+                counter -= Time.deltaTime;
+                if (counter < 0)
+                {
+                    hit.transform.gameObject.SendMessage("ButtonAction");
+                }
             }
             else
             {
+                counter = 3;
                 crosshair.GetComponent<Image>().CrossFadeColor(Color.red, .5f, false, false);
             }
         }
+
+       
     }
 }
