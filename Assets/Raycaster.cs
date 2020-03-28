@@ -25,6 +25,7 @@ public class Raycaster : MonoBehaviour
             Debug.Log("Did Hit");
             textDebug.text = hit.transform.name;
             crosshair.transform.position = hit.point;
+            crosshair.transform.forward = hit.normal;
 
             if (hit.transform.gameObject.CompareTag("Player"))
             {
@@ -33,6 +34,7 @@ public class Raycaster : MonoBehaviour
                 if (counter < 0)
                 {
                     hit.transform.gameObject.SendMessage("ButtonAction");
+
                 }
             }
             else
