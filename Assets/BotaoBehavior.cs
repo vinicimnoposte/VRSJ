@@ -19,6 +19,6 @@ public class BotaoBehavior : MonoBehaviour
 
     public void ButtonAction()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("level1");
     }
 }
