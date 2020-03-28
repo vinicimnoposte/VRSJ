@@ -8,6 +8,7 @@ public class Raycaster : MonoBehaviour
     public TextMesh textDebug;
     public GameObject crosshair;
     float counter=2;
+    public FPSWalk fpswalk;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,15 @@ public class Raycaster : MonoBehaviour
                 {
                     hit.transform.gameObject.SendMessage("ButtonAction");
 
+                }
+            }
+            else if(hit.transform.gameObject.CompareTag("Walkable"))
+            {
+                crosshair.GetComponent<Image>().CrossFadeColor(Color.blue, .5f, false, false);
+                counter -= Time.deltaTime;
+                if (counter < 0)
+                {
+                    fpswalk.positionToGo = hit.transform.position;
                 }
             }
             else
