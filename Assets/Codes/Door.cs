@@ -6,36 +6,55 @@ public class Door : MonoBehaviour
 {
 
     public Transform doorMesh;
+    bool closed=true;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Abre());
+        //StartCoroutine(Abre());
     }
 
    
     public IEnumerator Abre()
     {
-        while (doorMesh.transform.rotation.eulerAngles.y != -150)
+        float ang=0;
+        while (ang>-148)
         {
-            doorMesh.transform.rotation = Quaternion.Lerp(doorMesh.transform.rotation, Quaternion.Euler(0,-150,0), Time.deltaTime);
-
+            ang = Mathf.Lerp(ang, -150,Time.deltaTime);
+            doorMesh.transform.rotation = Quaternion.Euler(0, ang, 0);
+          
             yield return new WaitForEndOfFrame();
 
         }
+        closed = false;
     }
 
     public IEnumerator Fecha()
     {
-        while (doorMesh.transform.rotation.eulerAngles.y != 0)
+        float ang = -150;
+        while (ang<0)
         {
-            doorMesh.transform.rotation = Quaternion.Lerp(doorMesh.transform.rotation, Quaternion.identity, Time.deltaTime);
+            ang = Mathf.Lerp(ang, 1, Time.deltaTime);
+            doorMesh.transform.rotation = Quaternion.Euler(0, ang, 0);
 
             yield return new WaitForEndOfFrame();
 
         }
 
+        closed = true;
 
+    }
 
+    public void ButtonAction()
+    {
+        if (closed)
+        {
+            StartCoroutine(Abre());
+
+        }
+        else
+        {
+            StartCoroutine(Fecha());
+        }
     }
 
 }

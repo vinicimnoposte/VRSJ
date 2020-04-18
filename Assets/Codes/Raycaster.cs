@@ -23,7 +23,7 @@ public class Raycaster : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            //Debug.Log("Did Hit");
             textDebug.text = hit.transform.name;
             crosshair.transform.position = hit.point;
             crosshair.transform.forward = hit.normal;
@@ -34,8 +34,8 @@ public class Raycaster : MonoBehaviour
                 counter -= Time.deltaTime;
                 if (counter < 0)
                 {
-                    hit.transform.gameObject.SendMessage("ButtonAction");
-
+                    hit.transform.gameObject.SendMessageUpwards("ButtonAction");
+                    counter = 3;
                 }
             }
             else if(hit.transform.gameObject.CompareTag("Walkable"))
