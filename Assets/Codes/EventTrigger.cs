@@ -12,20 +12,25 @@ public class EventTrigger : MonoBehaviour
 
     public Vector3 force;
 
+    //quando o jogador entra no trigger
     private void OnTriggerEnter(Collider other)
     {
-        sound.Play();
-
+        //toca o som
+        if (sound)
+        {
+            sound.Play();
+        }
+        //objeto pra ativar
         if (toEnable)
         {
             toEnable.SetActive(true);
         }
-
+        //rigidbody pra aplicar força 
         if (rdb)
         {
             rdb.AddForce(force * 5, ForceMode.Impulse);
         }
-
+        //autodestruiçao do objeto
         if (autodestroy)
         {
             Destroy(gameObject,5);

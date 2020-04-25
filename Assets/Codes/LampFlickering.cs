@@ -24,7 +24,7 @@ public class LampFlickering : MonoBehaviour
         light.intensity = 2.8f;
         if (flikering)
         {
-            Invoke("TurnLightOff", Random.Range(0, 0.3f));
+            Invoke("TurnLightOff", Random.Range(0, 0.3f)); //chama uma funçao depois de um tempo
         }
     }
 
