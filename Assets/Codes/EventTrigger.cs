@@ -6,6 +6,7 @@ public class EventTrigger : MonoBehaviour
 {
 
     public AudioSource sound;
+    public bool enableordisable=true;
     public GameObject toEnable;
     public Rigidbody rdb;
     public bool autodestroy=false;
@@ -23,7 +24,7 @@ public class EventTrigger : MonoBehaviour
         //objeto pra ativar
         if (toEnable)
         {
-            toEnable.SetActive(true);
+            toEnable.SetActive(enableordisable);
         }
         //rigidbody pra aplicar força 
         if (rdb)
