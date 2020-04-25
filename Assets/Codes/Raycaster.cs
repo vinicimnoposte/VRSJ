@@ -20,14 +20,14 @@ public class Raycaster : MonoBehaviour
     {
         RaycastHit hit;
         // Does the ray intersect any objects 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 6))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             //Debug.Log("Did Hit");
             textDebug.text = hit.transform.name;
             crosshair.transform.position = hit.point;
-            crosshair.transform.forward = hit.normal;
-
+            //crosshair.transform.forward = hit.normal;
+            crosshair.transform.forward = transform.forward;
             if (hit.transform.gameObject.CompareTag("Player"))
             {
                 crosshair.GetComponent<Image>().CrossFadeColor(Color.green, .5f, false, false);
@@ -52,6 +52,10 @@ public class Raycaster : MonoBehaviour
                 counter = 3;
                 crosshair.GetComponent<Image>().CrossFadeColor(Color.red, .5f, false, false);
             }
+        }
+        else
+        {
+            crosshair.GetComponent<Image>().CrossFadeColor(Color.black, .0f, false, false);
         }
 
        

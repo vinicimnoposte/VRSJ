@@ -5,7 +5,7 @@ using UnityEngine;
 public class VRSimulator : MonoBehaviour
 {
 
-    Vector3 neckmov;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +16,11 @@ public class VRSimulator : MonoBehaviour
     void Update()
     {
 #if (UNITY_EDITOR)
-        neckmov = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Vector3 neckmov = new Vector3(-Input.GetAxis("Mouse Y"), 0, 0);
+        Vector3 bodymov = new Vector3(0, Input.GetAxis("Mouse X"), 0);
         transform.Rotate(neckmov);
+        transform.parent.Rotate(bodymov);
 #endif
 
     }

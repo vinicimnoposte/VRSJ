@@ -1017,7 +1017,7 @@ RectTransform:
   m_GameObject: {fileID: 199216125}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 792187105}
   m_RootOrder: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a9674979468ac90418a73b1c0b0b438c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe401880d512d094d9999e775443156e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5696,6 +5696,7 @@ MonoBehaviour:
   locksound: {fileID: 1419171096}
   toEnable: {fileID: 1861900905}
   rdb: {fileID: 0}
+  force: {x: 0, y: 0, z: 0}
 --- !u!1 &1488634595
 GameObject:
   m_ObjectHideFlags: 0
@@ -6824,6 +6825,7 @@ MonoBehaviour:
   locksound: {fileID: 1666007777}
   toEnable: {fileID: 0}
   rdb: {fileID: 1666007776}
+  force: {x: 3, y: 10, z: 0}
 --- !u!65 &1666007779
 BoxCollider:
   m_ObjectHideFlags: 0
