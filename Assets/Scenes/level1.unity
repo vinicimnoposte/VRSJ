@@ -3330,7 +3330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 757866339}
-  enableordisable: 0
+  enableordisable: 1
   toEnable: {fileID: 956984389}
   rdb: {fileID: 1763446415}
   autodestroy: 1
