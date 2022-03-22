@@ -15,7 +15,7 @@ public class VRSimulator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //teste no editor este cara nao roda no celular
+//        //teste no editor este cara nao roda no celular
 #if (UNITY_EDITOR)
         Cursor.lockState = CursorLockMode.Locked; //linha q trava o mousena tela
 

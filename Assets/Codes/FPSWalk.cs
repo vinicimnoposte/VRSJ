@@ -32,7 +32,7 @@ public class FPSWalk : MonoBehaviour
             warning.volume += Time.deltaTime / 5;
             if (counttodie < 0)
             {
-                SceneManager.LoadScene("Menu");
+                //SceneManager.LoadScene("Menu");
             }
         }
         else
